@@ -5,5 +5,5 @@ install_tools:
 	sudo apt-get install -y vim git
 
 install_python_packages:
-	sudo pip3 -v install requirements.txt
+	sudo pip3 -v install -r requirements.txt
 	
