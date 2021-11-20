@@ -1,1 +1,2 @@
 docker-compose >= 2.1.1
+bpytop >= 1.0.67
