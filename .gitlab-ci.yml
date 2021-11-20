@@ -1,0 +1,21 @@
+image: docker:latest
+
+include:
+- template: Security/SAST.gitlab-ci.yml
+
+before_script:
+  - apk add --no-cache python py3-pip
+  - pip install --no-cache-dir --user yamllint
+  - yamllint -v
+
+stages:
+- test
+- lint_docker_compose
+
+sast:
+  stage: test
+
+lint_docker_compose:
+  stage: lint_docker_compose
+  script:
+    - find . -name "docker-compose.yml" -exec yamllint {} \;
