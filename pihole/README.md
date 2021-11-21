@@ -1,5 +1,7 @@
 # pihole
 
+## Usage 
+
 You can install this simply by providing
 
 ```bash
@@ -16,4 +18,15 @@ The expected default value for the hosts file is `hosts`. You can name it someth
   make install HOSTS_FILE="new_hosts" PIHOLE_PASSWORD="mysuperpassword"
 ```
 
-See the provided `hosts`  file for reference.
+## Hosts file
+
+The contents of this file will be injected as `extra_hosts`  in the `docker-compose.yml` so that the correct hostnames are displayed in the pihole admin panel
+The syntax should follow a `<hostname>:<ip_address>` pattern, as follow:
+
+```
+pi:127.0.0.1
+phone:192.168.1.162
+nas:192.168.1.167
+playstation:192.168.1.55
+tv:192.168.1.56
+```
