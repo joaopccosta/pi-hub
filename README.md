@@ -10,7 +10,7 @@ All that you need to run to provision all tools is to run:
 make all \
 RPI_HOST="192.168.1.22" \
 PIHOLE_PASSWORD="aStr0ngP455w0Rdrr#91@" \
-ETC_LOCATION="/var/etc-pihole" \
+ETC_LOCATION="/var/etc-pihole/" \
 DNS_LOCATION="/var/etc-pihole-dnsmasq.d/"\
 ;
 ```

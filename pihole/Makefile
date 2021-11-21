@@ -21,3 +21,11 @@ replace_volumes:
 copy_hosts:
 	$(eval HOSTS := $(shell [ -f $(HOSTS_FILE) ] && cat hosts || echo ""))
 	$(shell [ -f $(HOSTS_FILE) ] && echo "    extra_hosts:" >> docker-compose.yml && for host in ${HOSTS}; do echo "      - $${host}" >> docker-compose.yml; done)
+
+setup_youtube_ads_blocking:
+	git clone https://github.com/kboghdady/youTube_ads_4_pi-hole.git
+	cd youTube_ads_4_pi-hole
+	$(eval DIR:=$(shell pwd))
+	sudo chmod a+x ${DIR}/youTube_ads_4_pi-hole/youtube.sh
+	$(shell echo "0 */1 * * * sudo ${DIR}/youTube_ads_4_pi-hole/youtube.sh >/dev/null" | crontab -)
+	

@@ -43,3 +43,15 @@ nas:192.168.1.167
 playstation:192.168.1.55
 tv:192.168.1.56
 ```
+
+## Youtube ads blocking
+
+You can optionally run the following makefile target to (hopefully) block youtube ads through pihole:
+```bash
+make setup_youtube_ads_blocking
+```
+
+It clones [this repository](https://github.com/kboghdady/youTube_ads_4_pi-hole) locally, running a provided script which attempts to setup a blacklist and append it to the internal ` gravity.db`.
+
+Bear in mind that youtube ad blocking is somewhat finicky, so your results may vary (and hence this makefile target being optional).
+
