@@ -1,5 +1,5 @@
 HOSTS_FILE:="hosts"
-PASSWORD:="default"
+PIHOLE_PASSWORD:="default"
 
 install: create_compose_file replace_password copy_hosts compose 
 
@@ -11,7 +11,7 @@ create_compose_file:
 	$(shell cp docker-compose-template.yml docker-compose.yml)
 
 replace_password:
-	sed -i "s/PASS_MACRO/${PASSWORD}/g" docker-compose.yml
+	sed -i "s/PASS_MACRO/${PIHOLE_PASSWORD}/g" docker-compose.yml
 
 copy_hosts:
 	$(eval HOSTS := $(shell [ -f $(HOSTS_FILE) ] && cat hosts || echo ""))
