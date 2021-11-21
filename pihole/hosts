@@ -1,13 +1,8 @@
-127.0.0.1       localhost
-::1             localhost ip6-localhost ip6-loopback
-ff02::1         ip6-allnodes
-ff02::2         ip6-allrouters
-
-127.0.1.1               pi
-192.168.1.162           personal_phone
-192.168.1.167           nas
-192.168.1.75            router2
-192.168.1.69            nintendo_switch
-192.168.1.124           work_laptop
-192.168.1.128           work_phone
-192.168.1.150           playstation_5
+pi:127.0.1.1
+personal_phone:192.168.1.162
+nas:192.168.1.167
+router2:192.168.1.75
+nintendo_switch:192.168.1.69
+work_laptop:192.168.1.124
+work_phone:192.168.1.128
+playstation_5:192.168.1.150

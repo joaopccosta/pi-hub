@@ -6,7 +6,9 @@ update_os:
 install_docker: update_os
 	curl -fsSL https://get.docker.com -o get-docker.sh
 	sudo sh get-docker.sh
-	sudo usermod -aG docker pi
+	#sudo usermod -aG docker pi
+	sudo groupadd docker
+	sudo usermod -aG docker ${USER}
 	docker version
 	docker info
 
@@ -20,8 +22,8 @@ remove_docker:
 install_tools:
 	make -C ./tools install_tools install_python_packages
 
-install_pihole: install_docker
+install_pihole: 
 	make -C ./pihole install
 
-install_homeassistant: install_docker
+install_homeassistant: 
 	make -C ./home-assistant install
