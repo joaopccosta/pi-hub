@@ -7,7 +7,12 @@ I am currently running this on a `raspberry pi4 4gb` and thus the base system is
 All that you need to run to provision all tools is to run:
 
 ```bash
-make all RPI_HOST="192.168.1.22" PIHOLE_PASSWORD="aStr0ngP455w0Rdrr#91@"
+make all \
+RPI_HOST="192.168.1.22" \
+PIHOLE_PASSWORD="aStr0ngP455w0Rdrr#91@" \
+ETC_LOCATION="/var/etc-pihole" \
+DNS_LOCATION="/var/etc-pihole-dnsmasq.d/"\
+;
 ```
 
 Each folder has its own internal `Makefile` should you want to install individual software, or customise the values for specific variables.

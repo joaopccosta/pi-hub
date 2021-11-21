@@ -15,8 +15,21 @@ You can also pass a `hosts`  file optionally, which will be added to the pihole'
 The expected default value for the hosts file is `hosts`. You can name it something else if you need so, but then you'll have to provide that name on the makefile command.
 
 ```bash
-  make install HOSTS_FILE="new_hosts" PIHOLE_PASSWORD="mysuperpassword"
+make install \
+HOSTS_FILE="new_hosts" \
+PIHOLE_PASSWORD="mysuperpassword" \
+ETC_LOCATION="/var/etc-pihole" \
+DNS_LOCATION="/var/etc-pihole/dnsmasq.d/"\
+;
 ```
+
+## Volumes
+
+Two volumes can be used:
+
+- `ETC_LOCATION` defines where `/etc/pihole` will be mounted from. (default is `./etc-pihole/`)
+- `DNS_LOCATION` defines where `etc/dnsmasq.d/` will be mounted from. (default is `./etc-dnsmasq.d/`)
+
 
 ## Hosts file
 
