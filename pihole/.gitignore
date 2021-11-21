@@ -1,4 +1,5 @@
 docker-compose.yml
 etc-pihole
 etc-dnsmasq.d
+etc-dnscrypt-proxy
 youTube_ads_4_pi-hole/

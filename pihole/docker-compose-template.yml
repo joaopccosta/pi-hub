@@ -1,7 +1,14 @@
 version: "3"
 
-# More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
 services:
+  dnscrypt-proxy:
+    image: gists/dnscrypt-proxy
+    ports:
+        - "PIHOLE_DNS_PORT:5353/udp"
+        - "PIHOLE_DNS_PORT:5353/tcp"
+    volumes:
+        - 'DNSCRYPT_MACRO'
+    restart: always
   pihole:
     container_name: pihole
     image: pihole/pihole:latest
@@ -12,14 +19,11 @@ services:
       - "80:80/tcp"
     environment:
       TZ: 'America/Chicago'
-      WEBPASSWORD: 'PASS_MACRO' 
-    # Volumes store your data between container upgrades
+      WEBPASSWORD: 'PASS_MACRO'
+      PIHOLE_DNS_: 'PIHOLEDNS' 
     volumes:
       - 'ETC_MACRO'
       - 'DNS_MACRO'
-    # Recommended but not required (DHCP needs NET_ADMIN)
-    #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
     cap_add:
       - NET_ADMIN
     restart: unless-stopped
-    
