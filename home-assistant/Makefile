@@ -7,5 +7,5 @@ install: replace_variables
 
 replace_variables:
 	sed "s/mariadbrootpassword/${MARIADB_ROOT_PASSWORD}/g; s/ha_dbdatabasepassword/${HA_DB_PASSWORD}/g; " .env-template > .env
-	sed "s/<hostip>/${RPI_HOST_IP}/g; s/ha_dbdatabasepassword/${HA_DB_PASSWORD}/g" hass-config/configuration-template.yaml > hass-config/configuration.yaml
+	sed "s/<hostip>/${RPI_HOST_IP}/g; s/<ha_dbdatabasepassword>/${HA_DB_PASSWORD}/g" hass-config/configuration-template.yaml > hass-config/configuration.yaml
 	
