@@ -28,6 +28,8 @@ replace_dnscrypt_values:
 copy_hosts:
 	$(eval HOSTS := $(shell [ -f $(HOSTS_FILE) ] && cat hosts || echo ""))
 	$(shell [ -f $(HOSTS_FILE) ] && echo "    extra_hosts:" >> docker-compose.yml && for host in ${HOSTS}; do echo "      - $${host}" >> docker-compose.yml; done)
+#sudo awk -F: '{printf "%-16s       %s\n",$$1,$$NF}' $(HOSTS_FILE) > "02-lan.conf"
+#sudo mv ./02-lan.conf ${DNS_LOCATION}02-lan.conf
 
 setup_youtube_ads_blocking:
 	git clone https://github.com/kboghdady/youTube_ads_4_pi-hole.git
