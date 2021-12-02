@@ -65,7 +65,17 @@ services:
       - "./configurator-config:/config"
       - "./hass-config:/hass-config"
     user: "${PUID}:${PGID}"
-    
+  esphome:
+    container_name: esphome
+    image: esphome/esphome
+    privileged: true
+    ports:
+      - 6052:6052
+      - 6123:6123
+    volumes:
+      - ${USERDIR}/stacks/homeautomation/esphome:/config:rw
+        #network_mode: host
+    restart: unless-stopped    
 #  portainer:
 #    ports:
 #      - "9000:9000"
