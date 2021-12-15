@@ -73,7 +73,7 @@ services:
       - 6052:6052
       - 6123:6123
     volumes:
-      - ${USERDIR}/stacks/homeautomation/esphome:/config:rw
+      - ./hass-config:/config:rw
         #network_mode: host
     restart: unless-stopped    
 #  portainer:
