@@ -26,19 +26,19 @@ services:
       - ./mariadb:/config
     ports:
       - "3306:3306"
-        #  nodered:
-        #    container_name: nodered
-        #    image: nodered/node-red
-        #    ports:
-        #      - "1880:1880"
-        #    volumes:
-        #      - ./nodered:/data
-        #    depends_on:
-        #      - homeassistant
-        #      - mosquitto
-        #    environment:
-        #      TZ: "Europe/Madrid"
-        #    restart: unless-stopped
+  nodered:
+    container_name: nodered
+    image: nodered/node-red
+    ports:
+      - "1880:1880"
+    volumes:
+      - ./nodered:/data
+    depends_on:
+      - homeassistant
+      - mosquitto
+    environment:
+      TZ: "Europe/Madrid"
+    restart: unless-stopped
   mosquitto:
     image: eclipse-mosquitto
     container_name: mosquitto
